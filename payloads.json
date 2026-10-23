@@ -1,0 +1,14 @@
+{
+  "name": "Codex PS5 Releases",
+  "payloads": [
+    {
+      "name": "Codex PS5 Service",
+      "filename": "assistant-service.elf",
+      "url": "https://github.com/Portablelle/Codex-PS5/releases/download/v0.0.4/assistant-service.elf",
+      "description": "Codex PS5 assistant service ELF. Update the matching ShadowMount app folder separately.",
+      "version": "v0.0.4",
+      "category": "Utilities",
+      "checksum": "27d5cd2d75eec0707058976adfe710e1731dbd5817824852b35c8f9c98394a59"
+    }
+  ]
+}
