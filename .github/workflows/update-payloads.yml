@@ -1,0 +1,35 @@
+
+name: Update Codex PS5 payload feed
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run tests
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Update payload feed
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 update_payloads.py
+
+      - name: Commit changes
+        run: |
+          if ! git diff --quiet -- payloads.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add payloads.json
+            git commit -m "Update Codex PS5 payload"
+            git push
+          fi
