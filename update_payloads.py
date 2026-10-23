@@ -47,7 +47,7 @@ def latest_standalone_elf(releases):
 
 def build_catalog(release, asset):
     payload = {
-        "name": "Codex PS5 Service",
+        "name": "assistant-service",
         "filename": ASSET_NAME,
         "url": asset["browser_download_url"],
         "description": "Codex PS5 assistant service ELF. Update the matching ShadowMount app folder separately.",
